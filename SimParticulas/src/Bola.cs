@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gravity_simulation
+namespace Gravity_Simulation
 {
     public class Ballinstance
     {

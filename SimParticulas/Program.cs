@@ -10,13 +10,12 @@ namespace Gravity_Simulation
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
+
         static void Main()
         {
 
+            Gravity_Simulation.Quadra quadra = new Quadra();
+            Application.Run(quadra);
 
 
         }

@@ -6,10 +6,10 @@ using System.Windows.Forms;
 using System.Data;
 using System.IO;
 
-namespace Gravity_simulation
+namespace Gravity_Simulation
 {
 
-    public partial class Form1 : System.Windows.Forms.Form
+    public partial class Quadra : System.Windows.Forms.Form
 	{
 		// ball 1
 		double xspeed,yspeed,newyspeed,startingypos;
@@ -210,6 +210,10 @@ namespace Gravity_simulation
 			// Hide the balls
 			newxpos2 = newxpos3 = 2000;
 			newypos2 = newypos3 = 2000;
+
+            Painel painel = new Painel();
+            painel.Show();
+
 
 		}
 

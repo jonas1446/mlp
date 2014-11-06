@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gravity_simulation
+namespace Gravity_Simulation
 {
-    partial class Form1
+    partial class Quadra
     {
 
         private System.Timers.Timer timer;
@@ -67,7 +67,7 @@ namespace Gravity_simulation
         		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quadra));
             this.timer = new System.Timers.Timer();
             this.ball = new System.Windows.Forms.PictureBox();
             this.ball2 = new System.Windows.Forms.PictureBox();
@@ -839,7 +839,7 @@ namespace Gravity_simulation
 
 		}
 
-                public Form1()
+                public Quadra()
                 {
                     //
                     // Required for Windows Form Designer support
