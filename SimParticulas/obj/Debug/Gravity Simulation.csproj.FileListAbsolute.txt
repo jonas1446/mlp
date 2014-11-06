@@ -1,0 +1,7 @@
+C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity_simulation.Form1.resources
+C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity Simulation.csproj.GenerateResource.Cache
+C:\Users\jrflores\Desktop\Git\SimParticulas\bin\Debug\Gravity Simulation.exe
+C:\Users\jrflores\Desktop\Git\SimParticulas\bin\Debug\Gravity Simulation.pdb
+C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity Simulation.exe
+C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity Simulation.pdb
+C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity_Simulation.Painel.resources
