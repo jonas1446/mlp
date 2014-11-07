@@ -7,7 +7,6 @@ namespace Gravity_Simulation
 {
     partial class Quadra
     {
-
         private System.Timers.Timer timer;
         private System.Windows.Forms.PictureBox ball;
         private System.Windows.Forms.PictureBox ball2;
@@ -64,7 +63,7 @@ namespace Gravity_Simulation
         private System.Windows.Forms.Button ok3_btn;
         private System.ComponentModel.IContainer components;
 
-        		private void InitializeComponent()
+        private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quadra));
@@ -427,24 +426,12 @@ namespace Gravity_Simulation
             // acc_two
             // 
             this.acc_two.Location = new System.Drawing.Point(72, 112);
-            this.acc_two.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.acc_two.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.acc_two.Maximum = new decimal(new int[] {50,0,0,0});
+            this.acc_two.Minimum = new decimal(new int[] {1,0,0,0});
             this.acc_two.Name = "acc_two";
             this.acc_two.Size = new System.Drawing.Size(56, 20);
             this.acc_two.TabIndex = 12;
-            this.acc_two.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.acc_two.Value = new decimal(new int[] {10,0,0,0});
             // 
             // label5
             // 
@@ -485,46 +472,22 @@ namespace Gravity_Simulation
             // n5
             // 
             this.n5.Location = new System.Drawing.Point(72, 88);
-            this.n5.Maximum = new decimal(new int[] {
-            509,
-            0,
-            0,
-            0});
-            this.n5.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n5.Maximum = new decimal(new int[] {509,0,0,0});
+            this.n5.Minimum = new decimal(new int[] {1,0,0,0});
             this.n5.Name = "n5";
             this.n5.Size = new System.Drawing.Size(56, 20);
             this.n5.TabIndex = 7;
-            this.n5.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n5.Value = new decimal(new int[] {1,0,0,0});
             // 
             // n6
             // 
             this.n6.Location = new System.Drawing.Point(72, 64);
-            this.n6.Maximum = new decimal(new int[] {
-            580,
-            0,
-            0,
-            0});
-            this.n6.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n6.Maximum = new decimal(new int[] {580,0,0,0});
+            this.n6.Minimum = new decimal(new int[] {1,0,0,0});
             this.n6.Name = "n6";
             this.n6.Size = new System.Drawing.Size(56, 20);
             this.n6.TabIndex = 6;
-            this.n6.Value = new decimal(new int[] {
-            580,
-            0,
-            0,
-            0});
+            this.n6.Value = new decimal(new int[] {580,0,0,0});
             // 
             // n7
             // 
@@ -532,11 +495,7 @@ namespace Gravity_Simulation
             this.n7.Name = "n7";
             this.n7.Size = new System.Drawing.Size(56, 20);
             this.n7.TabIndex = 5;
-            this.n7.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            0});
+            this.n7.Value = new decimal(new int[] {40,0,0,0});
             // 
             // n8
             // 
@@ -544,11 +503,7 @@ namespace Gravity_Simulation
             this.n8.Name = "n8";
             this.n8.Size = new System.Drawing.Size(56, 20);
             this.n8.TabIndex = 4;
-            this.n8.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+            this.n8.Value = new decimal(new int[] {30,0,0,0});
             // 
             // ok2_btn
             // 
@@ -606,24 +561,12 @@ namespace Gravity_Simulation
             // acc_three
             // 
             this.acc_three.Location = new System.Drawing.Point(72, 112);
-            this.acc_three.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.acc_three.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.acc_three.Maximum = new decimal(new int[] {50,0,0,0});
+            this.acc_three.Minimum = new decimal(new int[] {1,0,0,0});
             this.acc_three.Name = "acc_three";
             this.acc_three.Size = new System.Drawing.Size(56, 20);
             this.acc_three.TabIndex = 14;
-            this.acc_three.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.acc_three.Value = new decimal(new int[] {10,0,0,0});
             // 
             // label9
             // 
@@ -664,46 +607,22 @@ namespace Gravity_Simulation
             // n9
             // 
             this.n9.Location = new System.Drawing.Point(72, 88);
-            this.n9.Maximum = new decimal(new int[] {
-            509,
-            0,
-            0,
-            0});
-            this.n9.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n9.Maximum = new decimal(new int[] {509,0,0,0});
+            this.n9.Minimum = new decimal(new int[] {1,0,0,0});
             this.n9.Name = "n9";
             this.n9.Size = new System.Drawing.Size(56, 20);
             this.n9.TabIndex = 7;
-            this.n9.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n9.Value = new decimal(new int[] {1,0,0,0});
             // 
             // n10
             // 
             this.n10.Location = new System.Drawing.Point(72, 64);
-            this.n10.Maximum = new decimal(new int[] {
-            580,
-            0,
-            0,
-            0});
-            this.n10.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n10.Maximum = new decimal(new int[] {580,0,0,0});
+            this.n10.Minimum = new decimal(new int[] {1,0,0,0});
             this.n10.Name = "n10";
             this.n10.Size = new System.Drawing.Size(56, 20);
             this.n10.TabIndex = 6;
-            this.n10.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.n10.Value = new decimal(new int[] {1,0,0,0});
             // 
             // n11
             // 
@@ -839,34 +758,27 @@ namespace Gravity_Simulation
 
 		}
 
-                public Quadra()
+        public Quadra()
+        {
+            InitializeComponent();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
                 {
-                    //
-                    // Required for Windows Form Designer support
-                    //
-                    InitializeComponent();
-
-                    //
-                    // TODO: Add any constructor code after InitializeComponent call
-                    //
+                    components.Dispose();
                 }
+            }
+            base.Dispose(disposing);
+        }
 
-                protected override void Dispose(bool disposing)
-                {
-                    if (disposing)
-                    {
-                        if (components != null)
-                        {
-                            components.Dispose();
-                        }
-                    }
-                    base.Dispose(disposing);
-                }
-
-                private System.Windows.Forms.TrackBar n1;
-                private System.Windows.Forms.TrackBar n4;
-                private System.Windows.Forms.TrackBar n3;
-                private System.Windows.Forms.TrackBar n2;
+        private System.Windows.Forms.TrackBar n1;
+        private System.Windows.Forms.TrackBar n4;
+        private System.Windows.Forms.TrackBar n3;
+        private System.Windows.Forms.TrackBar n2;
 
     }
 }

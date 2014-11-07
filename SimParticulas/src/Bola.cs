@@ -8,16 +8,36 @@ namespace Gravity_Simulation
     public class Ballinstance
     {
         int xpos, ypos;
+
+        public double xspeed;
+        public double yspeed;
+        public double newyspeed;
+        public double startingypos;
+        public double newxpos;
+        public double newypos;
+        public double oldxpos;
+        public double oldypos;
+        public double newx;
+        public double oldx;
+        public double newy; 
+        public double oldy; 
+        public double acc, t;
+        public int xmouse, ymouse;
+        public bool dragging, trace, collisiony;
+
         const int ground = 500;
 
         public Ballinstance()
         {
+
+        }
+        public Ballinstance(bool d)
+        {
+            dragging = d;
         }
 
-
-        public void play(ref double xspeed, ref double yspeed, ref double newyspeed, ref double startingypos, ref double newxpos, ref double newypos, ref double oldxpos, ref double oldypos, ref double newx, ref double oldx, ref double newy, ref double oldy, ref double acc, ref double t, ref int xmouse, ref int ymouse, ref bool dragging, ref bool trace, ref bool collisiony)
+        public void play()
         {
-
             xpos = (int)newxpos;
             ypos = (int)newypos;
 
@@ -45,7 +65,6 @@ namespace Gravity_Simulation
 
                 // The time -while dragging- will not start yet
                 t = 0;
-
             }
             else
             {

@@ -11,52 +11,27 @@ namespace Gravity_Simulation
 
     public partial class Quadra : System.Windows.Forms.Form
 	{
-		// ball 1
-		double xspeed,yspeed,newyspeed,startingypos;
-		double newxpos,newypos,oldxpos,oldypos;
-		double newx,oldx,newy,oldy;
-		double acc,t;
-		const int ground = 500;
-		int xmouse,ymouse;
-		bool dragging=true,trace,collisiony;
-
-		// ball 2
-		double xspeed2,yspeed2,newyspeed2,startingypos2;
-		double newxpos2,newypos2,oldxpos2,oldypos2;
-		double newx2,oldx2,newy2,oldy2;
-		double acc2,t2;
-		int xmouse2,ymouse2;
-		bool dragging2,trace2,collisiony2;
-		
-		// ball 3
-		double xspeed3,yspeed3,newyspeed3,startingypos3;
-		double newxpos3,newypos3,oldxpos3,oldypos3;
-		double newx3,oldx3,newy3,oldy3;
-		double acc3,t3;
-		int xmouse3,ymouse3;
-		bool dragging3,trace3,collisiony3;
-
+        const int ground = 500;
 		int choice = 1;
 		int numberofballs = 1;
 
-		Ballinstance b1 = new Ballinstance();
+		Ballinstance b1 = new Ballinstance(true);
 		Ballinstance b2 = new Ballinstance();
 		Ballinstance b3 = new Ballinstance();
 
-
 		private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
-			b1.play(ref xspeed,ref yspeed,ref newyspeed,ref startingypos,ref newxpos,ref newypos,ref oldxpos,ref oldypos,ref newx,ref oldx,ref newy,ref oldy,ref acc,ref t,ref xmouse,ref ymouse,ref dragging,ref trace,ref collisiony);
-			ball.Left = (int)newxpos;
-			ball.Top = (int)(ground - newypos);
+			b1.play();
+			ball.Left = (int)b1.newxpos;
+			ball.Top = (int)(ground - b1.newypos);
 
-			b2.play(ref xspeed2,ref yspeed2,ref newyspeed2,ref startingypos2,ref newxpos2,ref newypos2,ref oldxpos2,ref oldypos2,ref newx2,ref oldx2,ref newy2,ref oldy2,ref acc2,ref t2,ref xmouse2,ref ymouse2,ref dragging2,ref trace2,ref collisiony2);
-			ball2.Left = (int)newxpos2;
-			ball2.Top = (int)(ground - newypos2);
+			b2.play();
+			ball2.Left = (int)b2.newxpos;
+            ball2.Top = (int)(ground - b2.newypos);
 
-			b3.play(ref xspeed3,ref yspeed3,ref newyspeed3,ref startingypos3,ref newxpos3,ref newypos3,ref oldxpos3,ref oldypos3,ref newx3,ref oldx3,ref newy3,ref oldy3,ref acc3,ref t3,ref xmouse3,ref ymouse3,ref dragging3,ref trace3,ref collisiony3);
-			ball3.Left = (int)newxpos3;
-			ball3.Top = (int)(ground - newypos3);
+			b3.play();
+            ball3.Left = (int)b3.newxpos;
+            ball3.Top = (int)(ground - b3.newypos);
 
 			Collision();
 		}
@@ -71,19 +46,19 @@ namespace Gravity_Simulation
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that they have the same mass -> xspeed + xspeed2 = xspeed` + xspeed2`
 
-				if(Math.Abs(xspeed) < 0.5 && Math.Abs(xspeed) >= 0)
-					xspeed = xspeed2;
-				else if(xspeed > 0 )
-					xspeed *= -0.9;
+				if(Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
+					b1.xspeed = b2.xspeed;
+				else if(b1.xspeed > 0 )
+					b1.xspeed *= -0.9;
 				else
-					xspeed *= 1.35;
-				
-				if(Math.Abs(xspeed2) < 0.5 && Math.Abs(xspeed2) >= 0)
-					xspeed2 = xspeed;
-				else if(xspeed2 > 0 )	
-					xspeed2 *= 1.35;
+					b1.xspeed *= 1.35;
+
+                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
+                    b2.xspeed = b1.xspeed;
+                else if (b2.xspeed > 0)
+                    b2.xspeed *= 1.35;
 				else
-					xspeed2 *= -0.9;
+                    b2.xspeed *= -0.9;
 			}
 
 			// ball hits ball2 from the left, and we don't know the direction of ball2 nor ball
@@ -93,19 +68,19 @@ namespace Gravity_Simulation
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed2 = xspeed` + xspeed2`
 
-				if(Math.Abs(xspeed) < 0.5 && Math.Abs(xspeed) >= 0)
-					xspeed = xspeed2;
-				else if(xspeed < 0)
-					xspeed *= -0.9;
+                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
+                    b1.xspeed = b2.xspeed;
+                else if (b1.xspeed < 0)
+                    b1.xspeed *= -0.9;
 				else
-					xspeed *= 1.35;
-				
-				if(Math.Abs(xspeed2) < 0.5 && Math.Abs(xspeed2) >= 0)
-					xspeed2 = xspeed;
-				else if(xspeed2 < 0 )	
-					xspeed2 *= 1.35;
+                    b1.xspeed *= 1.35;
+
+                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
+                    b2.xspeed = b1.xspeed;
+                else if (b2.xspeed < 0)
+                    b2.xspeed *= 1.35;
 				else
-					xspeed2 *= -0.9;
+                    b2.xspeed *= -0.9;
 			}
 			#endregion ball and ball2
 
@@ -117,19 +92,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed3 = xspeed` + xspeed3`
 
-				if(Math.Abs(xspeed) < 0.5 && Math.Abs(xspeed) >= 0)
-					xspeed = xspeed3;
-				else if(xspeed > 0)
-					xspeed *= -0.9;
+                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
+                    b1.xspeed = b3.xspeed;
+                else if (b1.xspeed > 0)
+                    b1.xspeed *= -0.9;
 				else
-					xspeed *= 1.35;
-				
-				if(Math.Abs(xspeed3) < 0.5 && Math.Abs(xspeed3) >= 0)
-					xspeed3 = xspeed;
-				else if(xspeed3 > 0 )	
-					xspeed3 *= 1.35;
+                    b1.xspeed *= 1.35;
+
+                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
+                    b3.xspeed = b1.xspeed;
+                else if (b3.xspeed > 0)
+                    b3.xspeed *= 1.35;
 				else
-					xspeed3 *= -0.9;
+                    b3.xspeed *= -0.9;
 			}
 
 			// ball hits ball3 from the left, and we don't know the direction of ball3 nor ball
@@ -139,19 +114,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed3 = xspeed` + xspeed3`
 
-				if(Math.Abs(xspeed) < 0.5 && Math.Abs(xspeed) >= 0)
-					xspeed = xspeed3;
-				else if(xspeed < 0)
-					xspeed *= -0.9;
+                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
+                    b1.xspeed = b3.xspeed;
+                else if (b1.xspeed < 0)
+                    b1.xspeed *= -0.9;
 				else
-					xspeed *= 1.35;
-				
-				if(Math.Abs(xspeed3) < 0.5 && Math.Abs(xspeed3) >= 0)
-					xspeed3 = xspeed;
-				else if(xspeed3 < 0 )	
-					xspeed3 *= 1.35;
+                    b1.xspeed *= 1.35;
+
+                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
+                    b3.xspeed = b1.xspeed;
+                else if (b3.xspeed < 0)
+                    b3.xspeed *= 1.35;
 				else
-					xspeed3 *= -0.9;
+                    b3.xspeed *= -0.9;
 			}
 			#endregion ball and ball3
 
@@ -163,19 +138,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed2, by the "preserved momentum law", knowing that the have the same mass -> xspeed2 + xspeed3 = xspeed2` + xspeed3`
 
-				if(Math.Abs(xspeed2) < 0.5 && Math.Abs(xspeed2) >= 0)
-					xspeed2 = xspeed3;
-				else if(xspeed2 > 0)
-					xspeed2 *= -0.9;
+                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
+                    b2.xspeed = b3.xspeed;
+                else if (b2.xspeed > 0)
+                    b2.xspeed *= -0.9;
 				else
-					xspeed2 *= 1.35;
-				
-				if(Math.Abs(xspeed3) < 0.5 && Math.Abs(xspeed3) >= 0)
-					xspeed3 = xspeed2;
-				else if(xspeed3 > 0 )	
-					xspeed3 *= 1.35;
+                    b2.xspeed *= 1.35;
+
+                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
+                    b3.xspeed = b2.xspeed;
+                else if (b3.xspeed > 0)
+                    b3.xspeed *= 1.35;
 				else
-					xspeed3 *= -0.9;
+                    b3.xspeed *= -0.9;
 			}
 
 			// ball2 hits ball3 from the left, and we don't know the direction of ball3 nor ball2
@@ -185,19 +160,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed2, by the "preserved momentum law", knowing that the have the same mass -> xspeed2 + xspeed3 = xspeed2` + xspeed3`
 
-				if(Math.Abs(xspeed2) < 0.5 && Math.Abs(xspeed2) >= 0)
-					xspeed2 = xspeed3;
-				else if(xspeed2 < 0)
-					xspeed2 *= -0.9;
+                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
+                    b2.xspeed = b3.xspeed;
+                else if (b2.xspeed < 0)
+                    b2.xspeed *= -0.9;
 				else
-					xspeed2 *= 1.35;
-				
-				if(Math.Abs(xspeed3) < 0.5 && Math.Abs(xspeed3) >= 0)
-					xspeed3 = xspeed2;
-				else if(xspeed3 < 0 )	
-					xspeed3 *= 1.35;
+                    b2.xspeed *= 1.35;
+
+                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
+                    b3.xspeed = b2.xspeed;
+                else if (b3.xspeed < 0)
+                    b3.xspeed *= 1.35;
 				else
-					xspeed3 *= -0.9;
+                    b3.xspeed *= -0.9;
 			}
 			#endregion ball2 and ball3
 		}
@@ -205,15 +180,14 @@ namespace Gravity_Simulation
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
 			//sw = new StreamWriter("trace.txt");
-			t = t2 = t3= 0;
-			acc = acc2 = acc3 = 10;
+			b1.t = b2.t = b3.t= 0;
+			b1.acc = b2.acc = b3.acc = 10;
 			// Hide the balls
-			newxpos2 = newxpos3 = 2000;
-			newypos2 = newypos3 = 2000;
+            b2.newxpos = b3.newxpos = 2000;
+            b2.newypos = b3.newypos = 2000;
 
             Painel painel = new Painel();
             painel.Show();
-
 
 		}
 
@@ -241,60 +215,58 @@ namespace Gravity_Simulation
 			switch(choice)
 			{
 				case 1:
-					dragging = true;
-					newxpos  = e.X;
-					newypos  = e.Y;
-					xmouse = e.X;
-					ymouse = e.Y;
+					b1.dragging = true;
+                    b1.newxpos = e.X;
+                    b1.newypos = e.Y;
+                    b1.xmouse = e.X;
+                    b1.ymouse = e.Y;
 					break;
 				case 2:
-					dragging2 = true;
-					newxpos2  = e.X;
-					newypos2  = e.Y;
-					xmouse2 = e.X;
-					ymouse2 = e.Y;
+					b2.dragging = true;
+                    b2.newxpos = e.X;
+                    b2.newypos = e.Y;
+                    b2.xmouse = e.X;
+                    b2.ymouse = e.Y;
 					break;
 				case 3:
-					dragging3 = true;
-					newxpos3  = e.X;
-					newypos3  = e.Y;
-					xmouse3 = e.X;
-					ymouse3 = e.Y;
+                    b3.dragging = true;
+                    b3.newxpos = e.X;
+                    b3.newypos = e.Y;
+                    b3.xmouse = e.X;
+					b3.ymouse = e.Y;
 					break;
 			}
 		}
-
 		private void Form1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			switch(choice)
 			{
 				case 1:
-					dragging = false;
+					b1.dragging = false;
 					break;
 				case 2:
-					dragging2 = false;
+					b2.dragging = false;
 					break;
 				case 3:
-					dragging3 = false;
+					b3.dragging = false;
 					break;
 			}
 		}
-
 		private void Form1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			switch(choice)
 			{
 				case 1:
-					xmouse = e.X;
-					ymouse = e.Y;
+					b1.xmouse = e.X;
+					b1.ymouse = e.Y;
 					break;
 				case 2:
-					xmouse2 = e.X;
-					ymouse2 = e.Y;
+					b2.xmouse = e.X;
+					b2.ymouse = e.Y;
 					break;
 				case 3:
-					xmouse3 = e.X;
-					ymouse3 = e.Y;
+                    b3.xmouse = e.X;
+                    b3.ymouse = e.Y;
 					break;
 			}
 		}
@@ -304,98 +276,82 @@ namespace Gravity_Simulation
 			if(numberofballs != 3)
 				numberofballs++;
 		}
-
 		private void menuItem7_Click(object sender, System.EventArgs e)
 		{
 			//trace = !trace;
 			//Form1.ActiveForm.Refresh();
 		}
-
 		private void hide1_btn_Click(object sender, System.EventArgs e)
 		{
 			groupBall1.Visible=false;
 		}
-
 		private void hide2_btn_Click(object sender, System.EventArgs e)
 		{
 			groupBall2.Visible=false;
 		}
-
 		private void hide3_btn_Click(object sender, System.EventArgs e)
 		{
 			groupBall3.Visible=false;
 		}
-
 		private void ok1_btn_Click(object sender, System.EventArgs e)
 		{
-			xspeed = (double)n1.Value;
-			yspeed = (double)n2.Value;
-			newxpos =   (double)n3.Value;
-		    newypos =   (double)n4.Value;
-			acc = (double)acc_one.Value;
-		    dragging=false;
+			b1.xspeed = (double)n1.Value;
+            b1.yspeed = (double)n2.Value;
+            b1.newxpos = (double)n3.Value;
+            b1.newypos = (double)n4.Value;
+			b1.acc = (double)acc_one.Value;
+            b1.dragging = false;
 		}
-
 		private void ok2_btn_Click(object sender, System.EventArgs e)
 		{
 		
-			xspeed2 = (double)n8.Value;
-			yspeed2 = (double)n7.Value;
-			newxpos2 =   (double)n6.Value;
-			newypos2 =   (double)n5.Value;
-			acc2 = (double)acc_two.Value;
-			dragging=false;
+			b2.xspeed = (double)n8.Value;
+            b2.yspeed = (double)n7.Value;
+            b2.newxpos = (double)n6.Value;
+            b2.newypos = (double)n5.Value;
+            b2.acc = (double)acc_two.Value;
+            b2.dragging = false;
 		}
-
 		private void ok3_btn_Click(object sender, System.EventArgs e)
 		{
 		
-			xspeed3 = (double)n12.Value;
-			yspeed3 = (double)n11.Value;
-			newxpos3 =   (double)n10.Value;
-			newypos3 =   (double)n9.Value;
-			acc3 = (double)acc_three.Value;
-			dragging=false;
+			b3.xspeed = (double)n12.Value;
+            b3.yspeed = (double)n11.Value;
+            b3.newxpos = (double)n10.Value;
+            b3.newypos = (double)n9.Value;
+            b3.acc = (double)acc_three.Value;
+            b3.dragging = false;
 		}
-
 		private void menuItem2_Click(object sender, System.EventArgs e)
 		{
 			groupBall1.Visible = true;
 		}
-
 		private void menuItem3_Click(object sender, System.EventArgs e)
 		{
 		    if(1 < numberofballs)
 			groupBall2.Visible = true;
 		}
-
 		private void menuItem4_Click(object sender, System.EventArgs e)
 		{
 			if(2 < numberofballs)
 			groupBall3.Visible = true;
 		}
-
 		private void menuItem8_Click(object sender, System.EventArgs e)
 		{
 			timer.Interval *= 0.5;
 		}
-
 		private void menuItem9_Click(object sender, System.EventArgs e)
 		{
 			timer.Interval *= 2;
 		}
-
 		private void menuItem11_Click(object sender, System.EventArgs e)
 		{
 			Application.Exit();
 		}
-
 		private void menuItem15_Click(object sender, System.EventArgs e)
 		{
 		
 		}
-
-     
 
 	}
 

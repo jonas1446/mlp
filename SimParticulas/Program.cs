@@ -10,14 +10,10 @@ namespace Gravity_Simulation
 {
     static class Program
     {
-
         static void Main()
         {
-
             Gravity_Simulation.Quadra quadra = new Quadra();
             Application.Run(quadra);
-
-
         }
     }
 }

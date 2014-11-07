@@ -5,3 +5,10 @@ C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity Simulation.exe
 C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity Simulation.pdb
 C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity_Simulation.Painel.resources
 C:\Users\jrflores\Desktop\Git\SimParticulas\obj\Debug\Gravity_Simulation.Quadra.resources
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\obj\Debug\Gravity Simulation.exe
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\obj\Debug\Gravity Simulation.pdb
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\bin\Debug\Gravity Simulation.exe
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\bin\Debug\Gravity Simulation.pdb
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\obj\Debug\Gravity_Simulation.Quadra.resources
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\obj\Debug\Gravity_Simulation.Painel.resources
+C:\Users\Julio\Documents\GitHub\mlp\SimParticulas\obj\Debug\Gravity Simulation.csproj.GenerateResource.Cache
