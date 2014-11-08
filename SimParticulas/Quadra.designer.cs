@@ -8,9 +8,6 @@ namespace Gravity_Simulation
     partial class Quadra
     {
         private System.Timers.Timer timer;
-        private System.Windows.Forms.PictureBox ball;
-        private System.Windows.Forms.PictureBox ball2;
-        private System.Windows.Forms.PictureBox ball3;
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
@@ -68,9 +65,6 @@ namespace Gravity_Simulation
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quadra));
             this.timer = new System.Timers.Timer();
-            this.ball = new System.Windows.Forms.PictureBox();
-            this.ball2 = new System.Windows.Forms.PictureBox();
-            this.ball3 = new System.Windows.Forms.PictureBox();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
@@ -126,9 +120,6 @@ namespace Gravity_Simulation
             this.n3 = new System.Windows.Forms.TrackBar();
             this.n4 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball3)).BeginInit();
             this.groupBall1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acc_one)).BeginInit();
             this.groupBall2.SuspendLayout();
@@ -158,51 +149,29 @@ namespace Gravity_Simulation
             // 
             // ball
             // 
-            this.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball.Image")));
-            this.ball.Location = new System.Drawing.Point(224, 64);
-            this.ball.Name = "ball";
-            this.ball.Size = new System.Drawing.Size(56, 56);
-            this.ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.ball.TabIndex = 0;
-            this.ball.TabStop = false;
+            b1.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball.Image")));
             // 
             // ball2
             // 
-            this.ball2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ball2.Image = ((System.Drawing.Image)(resources.GetObject("ball2.Image")));
-            this.ball2.Location = new System.Drawing.Point(322, 240);
-            this.ball2.Name = "ball2";
-            this.ball2.Size = new System.Drawing.Size(56, 56);
-            this.ball2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.ball2.TabIndex = 4;
-            this.ball2.TabStop = false;
+            b2.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball2.Image")));
             // 
             // ball3
             // 
-            this.ball3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ball3.Image = ((System.Drawing.Image)(resources.GetObject("ball3.Image")));
-            this.ball3.Location = new System.Drawing.Point(429, 188);
-            this.ball3.Name = "ball3";
-            this.ball3.Size = new System.Drawing.Size(56, 56);
-            this.ball3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.ball3.TabIndex = 5;
-            this.ball3.TabStop = false;
+            b3.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball3.Image")));
             // 
             // mainMenu1
             // 
-            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1,
-            this.menuItem5});
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem1,
+                                                                                    this.menuItem5});
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem2,
-            this.menuItem3,
-            this.menuItem4,
-            this.menuItem12,
-            this.menuItem11});
+            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem2,
+                                                                                    this.menuItem3,
+                                                                                    this.menuItem4,
+                                                                                    this.menuItem12,
+                                                                                    this.menuItem11});
             this.menuItem1.Text = "&View";
             // 
             // menuItem2
@@ -237,13 +206,12 @@ namespace Gravity_Simulation
             // menuItem5
             // 
             this.menuItem5.Index = 1;
-            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem6,
-            this.menuItem14,
-            this.menuItem7,
-            this.menuItem13,
-            this.menuItem8,
-            this.menuItem9});
+            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem6,
+                                                                                    this.menuItem14,
+                                                                                    this.menuItem7,
+                                                                                    this.menuItem13,
+                                                                                    this.menuItem8,
+                                                                                    this.menuItem9});
             this.menuItem5.Text = "&Run";
             // 
             // menuItem6
@@ -316,24 +284,12 @@ namespace Gravity_Simulation
             // acc_one
             // 
             this.acc_one.Location = new System.Drawing.Point(84, 213);
-            this.acc_one.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.acc_one.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.acc_one.Maximum = new decimal(new int[] {50,0,0,0});
+            this.acc_one.Minimum = new decimal(new int[] {1,0,0,0});
             this.acc_one.Name = "acc_one";
             this.acc_one.Size = new System.Drawing.Size(56, 20);
             this.acc_one.TabIndex = 13;
-            this.acc_one.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.acc_one.Value = new decimal(new int[] {10,0,0,0});
             // 
             // hide1_btn
             // 
@@ -720,9 +676,9 @@ namespace Gravity_Simulation
             this.Controls.Add(this.groupBall3);
             this.Controls.Add(this.groupBall2);
             this.Controls.Add(this.groupBall1);
-            this.Controls.Add(this.ball3);
-            this.Controls.Add(this.ball2);
-            this.Controls.Add(this.ball);
+            this.Controls.Add(b3.ball);
+            this.Controls.Add(b2.ball);
+            this.Controls.Add(b1.ball);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -732,9 +688,9 @@ namespace Gravity_Simulation
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.timer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ball3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(b1.ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(b2.ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(b3.ball)).EndInit();
             this.groupBall1.ResumeLayout(false);
             this.groupBall1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acc_one)).EndInit();
@@ -755,7 +711,6 @@ namespace Gravity_Simulation
             ((System.ComponentModel.ISupportInitialize)(this.n3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.n4)).EndInit();
             this.ResumeLayout(false);
-
 		}
 
         public Quadra()

@@ -15,23 +15,23 @@ namespace Gravity_Simulation
 		int choice = 1;
 		int numberofballs = 1;
 
-		Ballinstance b1 = new Ballinstance(true);
-		Ballinstance b2 = new Ballinstance();
-		Ballinstance b3 = new Ballinstance();
+        Ballinstance b1 = new Ballinstance("ball", 0, true);
+        Ballinstance b2 = new Ballinstance("ball2", 4);
+        Ballinstance b3 = new Ballinstance("ball3", 5);
 
 		private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
 			b1.play();
-			ball.Left = (int)b1.newxpos;
-			ball.Top = (int)(ground - b1.newypos);
+            b1.ball.Left = (int)b1.newxpos;
+            b1.ball.Top = (int)(ground - b1.newypos);
 
 			b2.play();
-			ball2.Left = (int)b2.newxpos;
-            ball2.Top = (int)(ground - b2.newypos);
+            b2.ball.Left = (int)b2.newxpos;
+            b2.ball.Top = (int)(ground - b2.newypos);
 
 			b3.play();
-            ball3.Left = (int)b3.newxpos;
-            ball3.Top = (int)(ground - b3.newypos);
+            b3.ball.Left = (int)b3.newxpos;
+            b3.ball.Top = (int)(ground - b3.newypos);
 
 			Collision();
 		}
@@ -40,7 +40,7 @@ namespace Gravity_Simulation
 		{
 			#region ball and ball2
 			// ball hits ball2 from the right, and we don't know the direction of ball2 nor ball
-			if(((ball.Right > ball2.Left && ball.Right < ball2.Right) && ((ball.Top >= ball2.Top && ball.Top <= ball2.Bottom) || (ball.Top <= ball2.Top && ball.Bottom >= ball2.Top))))
+            if (((b1.ball.Right > b2.ball.Left && b1.ball.Right < b2.ball.Right) && ((b1.ball.Top >= b2.ball.Top && b1.ball.Top <= b2.ball.Bottom) || (b1.ball.Top <= b2.ball.Top && b1.ball.Bottom >= b2.ball.Top))))
 			{
 				// xspeed either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
@@ -62,7 +62,7 @@ namespace Gravity_Simulation
 			}
 
 			// ball hits ball2 from the left, and we don't know the direction of ball2 nor ball
-			if(((ball.Left > ball2.Left && ball.Left < ball2.Right) && ((ball.Top >= ball2.Top && ball.Top <= ball2.Bottom) || (ball.Top <= ball2.Top && ball.Bottom >= ball2.Top))))
+            if (((b1.ball.Left > b2.ball.Left && b1.ball.Left < b2.ball.Right) && ((b1.ball.Top >= b2.ball.Top && b1.ball.Top <= b2.ball.Bottom) || (b1.ball.Top <= b2.ball.Top && b1.ball.Bottom >= b2.ball.Top))))
 			{
 				// xspeed either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
@@ -86,7 +86,7 @@ namespace Gravity_Simulation
 
 			#region ball and ball3
 			// ball hits ball3 from the right, and we don't know the direction of ball3 nor ball
-			if(((ball.Right > ball3.Left && ball.Right < ball3.Right) && ((ball.Top >= ball3.Top && ball.Top <= ball3.Bottom) || (ball.Top <= ball3.Top && ball.Bottom >= ball3.Top))))
+            if (((b1.ball.Right > b3.ball.Left && b1.ball.Right < b3.ball.Right) && ((b1.ball.Top >= b3.ball.Top && b1.ball.Top <= b3.ball.Bottom) || (b1.ball.Top <= b3.ball.Top && b1.ball.Bottom >= b3.ball.Top))))
 			{
 				// xspeed either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
@@ -108,7 +108,7 @@ namespace Gravity_Simulation
 			}
 
 			// ball hits ball3 from the left, and we don't know the direction of ball3 nor ball
-			if(((ball.Left > ball3.Left && ball.Left < ball3.Right) && ((ball.Top >= ball3.Top && ball.Top <= ball3.Bottom) || (ball.Top <= ball3.Top && ball.Bottom >= ball3.Top))))
+            if (((b1.ball.Left > b3.ball.Left && b1.ball.Left < b3.ball.Right) && ((b1.ball.Top >= b3.ball.Top && b1.ball.Top <= b3.ball.Bottom) || (b1.ball.Top <= b3.ball.Top && b1.ball.Bottom >= b3.ball.Top))))
 			{
 				// xspeed either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
@@ -132,7 +132,7 @@ namespace Gravity_Simulation
 
 			#region ball2 and ball3
 			// ball2 hits ball3 from the right, and we don't know the direction of ball3 nor ball2
-			if(((ball2.Right > ball3.Left && ball2.Right < ball3.Right) && ((ball2.Top >= ball3.Top && ball2.Top <= ball3.Bottom) || (ball2.Top <= ball3.Top && ball2.Bottom >= ball3.Top))))
+            if (((b2.ball.Right > b3.ball.Left && b2.ball.Right < b3.ball.Right) && ((b2.ball.Top >= b3.ball.Top && b2.ball.Top <= b3.ball.Bottom) || (b2.ball.Top <= b3.ball.Top && b2.ball.Bottom >= b3.ball.Top))))
 			{
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
@@ -154,7 +154,7 @@ namespace Gravity_Simulation
 			}
 
 			// ball2 hits ball3 from the left, and we don't know the direction of ball3 nor ball2
-			if(((ball2.Left > ball3.Left && ball2.Left < ball3.Right) && ((ball2.Top >= ball3.Top && ball2.Top <= ball3.Bottom) || (ball2.Top <= ball3.Top && ball2.Bottom >= ball3.Top))))
+            if (((b2.ball.Left > b3.ball.Left && b2.ball.Left < b3.ball.Right) && ((b2.ball.Top >= b3.ball.Top && b2.ball.Top <= b3.ball.Bottom) || (b2.ball.Top <= b3.ball.Top && b2.ball.Bottom >= b3.ball.Top))))
 			{
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction

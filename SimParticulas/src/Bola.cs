@@ -9,30 +9,51 @@ namespace Gravity_Simulation
     {
         int xpos, ypos;
 
-        public double xspeed;
-        public double yspeed;
-        public double newyspeed;
-        public double startingypos;
-        public double newxpos;
-        public double newypos;
-        public double oldxpos;
-        public double oldypos;
-        public double newx;
-        public double oldx;
-        public double newy; 
-        public double oldy; 
+        private double newyspeed;
+        private double startingypos;
+        private double oldxpos, oldypos;
+        private double newx, newy;
+        private double oldx, oldy; 
+
+        public double newxpos, newypos;
+        public double xspeed, yspeed;
         public double acc, t;
         public int xmouse, ymouse;
         public bool dragging, trace, collisiony;
 
+        public System.Windows.Forms.PictureBox ball;
+
         const int ground = 500;
 
-        public Ballinstance()
+        public Ballinstance(string ballName, int tabind)
         {
+            ball = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(ball)).BeginInit();
+
+            ball.Anchor = System.Windows.Forms.AnchorStyles.None;
+            ball.Location = new System.Drawing.Point(0, 0);
+            ball.Size = new System.Drawing.Size(56, 56);
+            ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            ball.TabStop = false;
+
+            ball.Name = ballName;
+            ball.TabIndex = tabind;
 
         }
-        public Ballinstance(bool d)
+        public Ballinstance(string ballName, int tabind, bool d)
         {
+            ball = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(ball)).BeginInit();
+
+            ball.Anchor = System.Windows.Forms.AnchorStyles.None;
+            ball.Location = new System.Drawing.Point(0, 0);
+            ball.Size = new System.Drawing.Size(56, 56);
+            ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            ball.TabStop = false;
+
+            ball.Name = ballName;
+            ball.TabIndex = tabind;
+
             dragging = d;
         }
 
