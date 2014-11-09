@@ -31,7 +31,7 @@ namespace Gravity_Simulation
             ((System.ComponentModel.ISupportInitialize)(ball)).BeginInit();
 
             ball.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ball.Location = new System.Drawing.Point(0, 0);
+            ball.Location = new System.Drawing.Point(50, 50);
             ball.Size = new System.Drawing.Size(56, 56);
             ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             ball.TabStop = false;
@@ -46,7 +46,7 @@ namespace Gravity_Simulation
             ((System.ComponentModel.ISupportInitialize)(ball)).BeginInit();
 
             ball.Anchor = System.Windows.Forms.AnchorStyles.None;
-            ball.Location = new System.Drawing.Point(0, 0);
+            ball.Location = new System.Drawing.Point(50, 50);
             ball.Size = new System.Drawing.Size(56, 56);
             ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             ball.TabStop = false;

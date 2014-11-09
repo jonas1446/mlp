@@ -8,11 +8,18 @@ namespace Gravity_Simulation
     partial class Quadra
     {
         private System.Timers.Timer timer;
-        private System.Windows.Forms.MainMenu mainMenu1;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MainMenu mainMenu;
+
+        private System.Windows.Forms.MenuItem menuItemView;
+        private System.Windows.Forms.MenuItem menuItemToolBox1;
+        private System.Windows.Forms.MenuItem menuItemToolBox2;
+        private System.Windows.Forms.MenuItem menuItemToolBox3;
+
+        private System.Windows.Forms.MenuItem menuItemOptions;
+        private System.Windows.Forms.MenuItem menuItemAddBall;
+        private System.Windows.Forms.MenuItem menuItemTempoMore;
+        private System.Windows.Forms.MenuItem menuItemTempoLess;
+
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -25,10 +32,6 @@ namespace Gravity_Simulation
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.GroupBox groupBall1;
         private System.Windows.Forms.GroupBox groupBall2;
         private System.Windows.Forms.GroupBox groupBall3;
@@ -40,7 +43,6 @@ namespace Gravity_Simulation
         private System.Windows.Forms.NumericUpDown n10;
         private System.Windows.Forms.NumericUpDown n11;
         private System.Windows.Forms.NumericUpDown n12;
-        private System.Windows.Forms.MenuItem menuItem9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -48,10 +50,7 @@ namespace Gravity_Simulation
         private System.Windows.Forms.NumericUpDown acc_two;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown acc_three;
-        private System.Windows.Forms.MenuItem menuItem11;
-        private System.Windows.Forms.MenuItem menuItem12;
-        private System.Windows.Forms.MenuItem menuItem14;
-        private System.Windows.Forms.MenuItem menuItem13;
+        private System.Windows.Forms.MenuItem menuItemExit;
         private System.Windows.Forms.Button hide1_btn;
         private System.Windows.Forms.Button hide2_btn;
         private System.Windows.Forms.Button hide3_btn;
@@ -65,20 +64,16 @@ namespace Gravity_Simulation
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quadra));
             this.timer = new System.Timers.Timer();
-            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem12 = new System.Windows.Forms.MenuItem();
-            this.menuItem11 = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
-            this.menuItem14 = new System.Windows.Forms.MenuItem();
-            this.menuItem7 = new System.Windows.Forms.MenuItem();
-            this.menuItem13 = new System.Windows.Forms.MenuItem();
-            this.menuItem8 = new System.Windows.Forms.MenuItem();
-            this.menuItem9 = new System.Windows.Forms.MenuItem();
+            this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
+            this.menuItemView = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox1 = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox2 = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox3 = new System.Windows.Forms.MenuItem();
+            this.menuItemExit = new System.Windows.Forms.MenuItem();
+            this.menuItemOptions = new System.Windows.Forms.MenuItem();
+            this.menuItemAddBall = new System.Windows.Forms.MenuItem();
+            this.menuItemTempoMore = new System.Windows.Forms.MenuItem();
+            this.menuItemTempoLess = new System.Windows.Forms.MenuItem();
             this.groupBall1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.acc_one = new System.Windows.Forms.NumericUpDown();
@@ -159,94 +154,69 @@ namespace Gravity_Simulation
             // 
             b3.ball.Image = ((System.Drawing.Image)(resources.GetObject("ball3.Image")));
             // 
-            // mainMenu1
+            // mainMenu
             // 
-            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem1,
-                                                                                    this.menuItem5});
+            this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItemView,
+                                                                                    this.menuItemOptions});
             // 
-            // menuItem1
+            // menuItemView
             // 
-            this.menuItem1.Index = 0;
-            this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem2,
-                                                                                    this.menuItem3,
-                                                                                    this.menuItem4,
-                                                                                    this.menuItem12,
-                                                                                    this.menuItem11});
-            this.menuItem1.Text = "&View";
+            this.menuItemView.Index = 0;
+            this.menuItemView.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItemToolBox1,
+                                                                                    this.menuItemToolBox2,
+                                                                                    this.menuItemToolBox3,
+                                                                                    this.menuItemExit});
+            this.menuItemView.Text = "&View";
             // 
-            // menuItem2
+            // menuItemToolBox1
             // 
-            this.menuItem2.Index = 0;
-            this.menuItem2.Text = "Ball1 ToolBox";
-            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            this.menuItemToolBox1.Index = 0;
+            this.menuItemToolBox1.Text = "Ball1 ToolBox";
+            this.menuItemToolBox1.Click += new System.EventHandler(this.menuItemShowToolBox1_Click);
             // 
-            // menuItem3
+            // menuItemToolBox2
             // 
-            this.menuItem3.Index = 1;
-            this.menuItem3.Text = "Ball2 ToolBox";
-            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            this.menuItemToolBox2.Index = 1;
+            this.menuItemToolBox2.Text = "Ball2 ToolBox";
+            this.menuItemToolBox2.Click += new System.EventHandler(this.menuItemShowToolBox2_Click);
             // 
-            // menuItem4
+            // menuItemToolBox3
             // 
-            this.menuItem4.Index = 2;
-            this.menuItem4.Text = "Ball3 ToolBox";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            this.menuItemToolBox3.Index = 2;
+            this.menuItemToolBox3.Text = "Ball3 ToolBox";
+            this.menuItemToolBox3.Click += new System.EventHandler(this.menuItemShowToolBox3_Click);
             // 
-            // menuItem12
+            // menuItemExit
             // 
-            this.menuItem12.Index = 3;
-            this.menuItem12.Text = "-";
+            this.menuItemExit.Index = 3;
+            this.menuItemExit.Text = "Exit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
-            // menuItem11
+            // menuItemOptions
             // 
-            this.menuItem11.Index = 4;
-            this.menuItem11.Text = "Exit";
-            this.menuItem11.Click += new System.EventHandler(this.menuItem11_Click);
+            this.menuItemOptions.Index = 1;
+            this.menuItemOptions.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItemAddBall,
+                                                                                    this.menuItemTempoMore,
+                                                                                    this.menuItemTempoLess});
+            this.menuItemOptions.Text = "&Options";
             // 
-            // menuItem5
+            // menuItemAddBall
             // 
-            this.menuItem5.Index = 1;
-            this.menuItem5.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {this.menuItem6,
-                                                                                    this.menuItem14,
-                                                                                    this.menuItem7,
-                                                                                    this.menuItem13,
-                                                                                    this.menuItem8,
-                                                                                    this.menuItem9});
-            this.menuItem5.Text = "&Run";
+            this.menuItemAddBall.Index = 0;
+            this.menuItemAddBall.Text = "Add ball";
+            this.menuItemAddBall.Click += new System.EventHandler(this.menuItemAddBall_Click);
             // 
-            // menuItem6
+            // menuItemTempoMais
             // 
-            this.menuItem6.Index = 0;
-            this.menuItem6.Text = "Add ball";
-            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
+            this.menuItemTempoMore.Index = 1;
+            this.menuItemTempoMore.Text = "Tempo ++";
+            this.menuItemTempoMore.Click += new System.EventHandler(this.menuItemTempoMore_Click);
             // 
-            // menuItem14
+            // menuItemTempoMenos
             // 
-            this.menuItem14.Index = 1;
-            this.menuItem14.Text = "-";
-            // 
-            // menuItem7
-            // 
-            this.menuItem7.Index = 2;
-            this.menuItem7.Text = "Trace";
-            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
-            // 
-            // menuItem13
-            // 
-            this.menuItem13.Index = 3;
-            this.menuItem13.Text = "-";
-            // 
-            // menuItem8
-            // 
-            this.menuItem8.Index = 4;
-            this.menuItem8.Text = "Tempo ++";
-            this.menuItem8.Click += new System.EventHandler(this.menuItem8_Click);
-            // 
-            // menuItem9
-            // 
-            this.menuItem9.Index = 5;
-            this.menuItem9.Text = "Tempo --";
-            this.menuItem9.Click += new System.EventHandler(this.menuItem9_Click);
+            this.menuItemTempoLess.Index = 2;
+            this.menuItemTempoLess.Text = "Tempo --";
+            this.menuItemTempoLess.Click += new System.EventHandler(this.menuItemTempoLess_Click);
             // 
             // groupBall1
             // 
@@ -298,7 +268,7 @@ namespace Gravity_Simulation
             this.hide1_btn.Size = new System.Drawing.Size(48, 23);
             this.hide1_btn.TabIndex = 12;
             this.hide1_btn.Text = "Hide";
-            this.hide1_btn.Click += new System.EventHandler(this.hide1_btn_Click);
+            this.hide1_btn.Click += new System.EventHandler(this.hideToolBox1_Click);
             // 
             // label4
             // 
@@ -479,7 +449,7 @@ namespace Gravity_Simulation
             this.hide2_btn.Size = new System.Drawing.Size(48, 23);
             this.hide2_btn.TabIndex = 10;
             this.hide2_btn.Text = "Hide";
-            this.hide2_btn.Click += new System.EventHandler(this.hide2_btn_Click);
+            this.hide2_btn.Click += new System.EventHandler(this.hideToolBox2_Click);
             // 
             // groupBall3
             // 
@@ -612,7 +582,7 @@ namespace Gravity_Simulation
             this.hide3_btn.Size = new System.Drawing.Size(48, 23);
             this.hide3_btn.TabIndex = 10;
             this.hide3_btn.Text = "Hide";
-            this.hide3_btn.Click += new System.EventHandler(this.hide3_btn_Click);
+            this.hide3_btn.Click += new System.EventHandler(this.hideToolBox3_Click);
             // 
             // panel1
             // 
@@ -679,7 +649,7 @@ namespace Gravity_Simulation
             this.Controls.Add(b3.ball);
             this.Controls.Add(b2.ball);
             this.Controls.Add(b1.ball);
-            this.Menu = this.mainMenu1;
+            this.Menu = this.mainMenu;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gravity and collision simulation";

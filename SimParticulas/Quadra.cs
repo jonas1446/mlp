@@ -179,7 +179,6 @@ namespace Gravity_Simulation
 		
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
-			//sw = new StreamWriter("trace.txt");
 			b1.t = b2.t = b3.t= 0;
 			b1.acc = b2.acc = b3.acc = 10;
 			// Hide the balls
@@ -193,10 +192,6 @@ namespace Gravity_Simulation
 
 		private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
-			// Pick a ball randomly
-			// Random rnd = new Random(DateTime.Now.Second);
-			// Choice = rnd.Next(1,numberofballs);
-
 			if(numberofballs == 1)
 				choice = 1;
 			else if(numberofballs == 2)
@@ -211,7 +206,6 @@ namespace Gravity_Simulation
 					choice = 1;
 			}
 			
-
 			switch(choice)
 			{
 				case 1:
@@ -271,29 +265,49 @@ namespace Gravity_Simulation
 			}
 		}
 
-		private void menuItem6_Click(object sender, System.EventArgs e)
+		private void menuItemAddBall_Click(object sender, System.EventArgs e)
 		{
 			if(numberofballs != 3)
 				numberofballs++;
 		}
-		private void menuItem7_Click(object sender, System.EventArgs e)
-		{
-			//trace = !trace;
-			//Form1.ActiveForm.Refresh();
-		}
-		private void hide1_btn_Click(object sender, System.EventArgs e)
+        private void menuItemTempoMore_Click(object sender, System.EventArgs e)
+        {
+            timer.Interval *= 0.5;
+        }
+        private void menuItemTempoLess_Click(object sender, System.EventArgs e)
+        {
+            timer.Interval *= 2;
+        }
+
+        private void menuItemShowToolBox1_Click(object sender, System.EventArgs e)
+        {
+            groupBall1.Visible = true;
+        }
+        private void menuItemShowToolBox2_Click(object sender, System.EventArgs e)
+        {
+            if (1 < numberofballs)
+                groupBall2.Visible = true;
+        }
+        private void menuItemShowToolBox3_Click(object sender, System.EventArgs e)
+        {
+            if (2 < numberofballs)
+                groupBall3.Visible = true;
+        }
+
+        private void hideToolBox1_Click(object sender, System.EventArgs e)
 		{
 			groupBall1.Visible=false;
 		}
-		private void hide2_btn_Click(object sender, System.EventArgs e)
+		private void hideToolBox2_Click(object sender, System.EventArgs e)
 		{
 			groupBall2.Visible=false;
 		}
-		private void hide3_btn_Click(object sender, System.EventArgs e)
+		private void hideToolBox3_Click(object sender, System.EventArgs e)
 		{
 			groupBall3.Visible=false;
 		}
-		private void ok1_btn_Click(object sender, System.EventArgs e)
+		
+        private void ok1_btn_Click(object sender, System.EventArgs e)
 		{
 			b1.xspeed = (double)n1.Value;
             b1.yspeed = (double)n2.Value;
@@ -322,35 +336,10 @@ namespace Gravity_Simulation
             b3.acc = (double)acc_three.Value;
             b3.dragging = false;
 		}
-		private void menuItem2_Click(object sender, System.EventArgs e)
-		{
-			groupBall1.Visible = true;
-		}
-		private void menuItem3_Click(object sender, System.EventArgs e)
-		{
-		    if(1 < numberofballs)
-			groupBall2.Visible = true;
-		}
-		private void menuItem4_Click(object sender, System.EventArgs e)
-		{
-			if(2 < numberofballs)
-			groupBall3.Visible = true;
-		}
-		private void menuItem8_Click(object sender, System.EventArgs e)
-		{
-			timer.Interval *= 0.5;
-		}
-		private void menuItem9_Click(object sender, System.EventArgs e)
-		{
-			timer.Interval *= 2;
-		}
-		private void menuItem11_Click(object sender, System.EventArgs e)
+		
+        private void menuItemExit_Click(object sender, System.EventArgs e)
 		{
 			Application.Exit();
-		}
-		private void menuItem15_Click(object sender, System.EventArgs e)
-		{
-		
 		}
 
 	}
