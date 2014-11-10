@@ -65,7 +65,7 @@
             this.groupBall1.Controls.Add(this.label1);
             this.groupBall1.Controls.Add(this.ok1_btn);
             this.groupBall1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.groupBall1.Location = new System.Drawing.Point(13, 12);
+            this.groupBall1.Location = new System.Drawing.Point(12, 14);
             this.groupBall1.Name = "groupBall1";
             this.groupBall1.Size = new System.Drawing.Size(401, 327);
             this.groupBall1.TabIndex = 9;
@@ -205,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 353);
+            this.ClientSize = new System.Drawing.Size(418, 353);
             this.Controls.Add(this.groupBall1);
             this.Name = "Painel";
             this.Text = "Painel";

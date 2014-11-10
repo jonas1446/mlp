@@ -19,5 +19,4 @@ C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\bin\Debug\Gravity Simulati
 C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\bin\Debug\Gravity Simulation.pdb
 C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\obj\Debug\Gravity Simulation.csprojResolveAssemblyReference.cache
 C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\obj\Debug\Gravity_Simulation.Quadra.resources
-C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\obj\Debug\Gravity_Simulation.Painel.resources
 C:\Users\Julio\Documents\GitHub\mlp\mlp\SimParticulas\obj\Debug\Gravity Simulation.csproj.GenerateResource.Cache

@@ -185,9 +185,6 @@ namespace Gravity_Simulation
             b2.newxpos = b3.newxpos = 2000;
             b2.newypos = b3.newypos = 2000;
 
-            Painel painel = new Painel();
-            painel.Show();
-
 		}
 
 		private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -309,10 +306,10 @@ namespace Gravity_Simulation
 		
         private void ok1_btn_Click(object sender, System.EventArgs e)
 		{
-			b1.xspeed = (double)n1.Value;
-            b1.yspeed = (double)n2.Value;
-            b1.newxpos = (double)n3.Value;
-            b1.newypos = (double)n4.Value;
+			b1.xspeed = (double)Bar_xspd.Value;
+            b1.yspeed = (double)Bar_yspd.Value;
+            b1.newxpos = (double)Bar_xpos.Value;
+            b1.newypos = (double)Bar_ypos.Value;
 			b1.acc = (double)acc_one.Value;
             b1.dragging = false;
 		}

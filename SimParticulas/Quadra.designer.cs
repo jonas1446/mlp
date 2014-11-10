@@ -14,27 +14,35 @@ namespace Gravity_Simulation
         private System.Windows.Forms.MenuItem menuItemToolBox1;
         private System.Windows.Forms.MenuItem menuItemToolBox2;
         private System.Windows.Forms.MenuItem menuItemToolBox3;
+        private System.Windows.Forms.MenuItem menuItemExit;
 
         private System.Windows.Forms.MenuItem menuItemOptions;
         private System.Windows.Forms.MenuItem menuItemAddBall;
         private System.Windows.Forms.MenuItem menuItemTempoMore;
         private System.Windows.Forms.MenuItem menuItemTempoLess;
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label1x_spd;
+        private System.Windows.Forms.Label label1y_spd;
+        private System.Windows.Forms.Label label1x_pos;
+        private System.Windows.Forms.Label label1y_pos;
+        private System.Windows.Forms.Label label2y_pos;
+        private System.Windows.Forms.Label label2x_pos;
+        private System.Windows.Forms.Label label2y_spd;
+        private System.Windows.Forms.Label label2x_spd;
+        private System.Windows.Forms.Label label3y_pos;
+        private System.Windows.Forms.Label label3x_pos;
+        private System.Windows.Forms.Label label3y_spd;
+        private System.Windows.Forms.Label label3x_spd;
+        private System.Windows.Forms.Label label1acc;
+        private System.Windows.Forms.Label label2acc;
+        private System.Windows.Forms.Label label3acc;
         private System.Windows.Forms.GroupBox groupBall1;
         private System.Windows.Forms.GroupBox groupBall2;
         private System.Windows.Forms.GroupBox groupBall3;
+        private System.Windows.Forms.TrackBar Bar_xspd;
+        private System.Windows.Forms.TrackBar Bar_yspd;
+        private System.Windows.Forms.TrackBar Bar_xpos;
+        private System.Windows.Forms.TrackBar Bar_ypos;
         private System.Windows.Forms.NumericUpDown n5;
         private System.Windows.Forms.NumericUpDown n6;
         private System.Windows.Forms.NumericUpDown n7;
@@ -43,96 +51,105 @@ namespace Gravity_Simulation
         private System.Windows.Forms.NumericUpDown n10;
         private System.Windows.Forms.NumericUpDown n11;
         private System.Windows.Forms.NumericUpDown n12;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown acc_one;
         private System.Windows.Forms.NumericUpDown acc_two;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown acc_three;
-        private System.Windows.Forms.MenuItem menuItemExit;
         private System.Windows.Forms.Button hide1_btn;
         private System.Windows.Forms.Button hide2_btn;
         private System.Windows.Forms.Button hide3_btn;
         private System.Windows.Forms.Button ok1_btn;
         private System.Windows.Forms.Button ok2_btn;
         private System.Windows.Forms.Button ok3_btn;
+        private System.Windows.Forms.Panel wall;
         private System.ComponentModel.IContainer components;
+
+
 
         private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quadra));
             this.timer = new System.Timers.Timer();
-            this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItemView = new System.Windows.Forms.MenuItem();
-            this.menuItemToolBox1 = new System.Windows.Forms.MenuItem();
-            this.menuItemToolBox2 = new System.Windows.Forms.MenuItem();
-            this.menuItemToolBox3 = new System.Windows.Forms.MenuItem();
-            this.menuItemExit = new System.Windows.Forms.MenuItem();
-            this.menuItemOptions = new System.Windows.Forms.MenuItem();
-            this.menuItemAddBall = new System.Windows.Forms.MenuItem();
-            this.menuItemTempoMore = new System.Windows.Forms.MenuItem();
-            this.menuItemTempoLess = new System.Windows.Forms.MenuItem();
+
+            this.mainMenu           = new System.Windows.Forms.MainMenu(this.components);
+
+            this.menuItemView       = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox1   = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox2   = new System.Windows.Forms.MenuItem();
+            this.menuItemToolBox3   = new System.Windows.Forms.MenuItem();
+            this.menuItemExit       = new System.Windows.Forms.MenuItem();
+
+            this.menuItemOptions    = new System.Windows.Forms.MenuItem();
+            this.menuItemAddBall    = new System.Windows.Forms.MenuItem();
+            this.menuItemTempoMore  = new System.Windows.Forms.MenuItem();
+            this.menuItemTempoLess  = new System.Windows.Forms.MenuItem();
+
             this.groupBall1 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.acc_one = new System.Windows.Forms.NumericUpDown();
-            this.hide1_btn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ok1_btn = new System.Windows.Forms.Button();
+            this.acc_one    = new System.Windows.Forms.NumericUpDown();
+            this.hide1_btn  = new System.Windows.Forms.Button();
+            this.ok1_btn    = new System.Windows.Forms.Button();
+            this.label1acc      = new System.Windows.Forms.Label();
+            this.label1y_pos    = new System.Windows.Forms.Label();
+            this.label1x_pos    = new System.Windows.Forms.Label();
+            this.label1y_spd    = new System.Windows.Forms.Label();
+            this.label1x_spd    = new System.Windows.Forms.Label();
+            this.Bar_xspd = new System.Windows.Forms.TrackBar();
+            this.Bar_yspd = new System.Windows.Forms.TrackBar();
+            this.Bar_xpos = new System.Windows.Forms.TrackBar();
+            this.Bar_ypos = new System.Windows.Forms.TrackBar();
+
             this.groupBall2 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.acc_two = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.acc_two    = new System.Windows.Forms.NumericUpDown();
+            this.hide2_btn  = new System.Windows.Forms.Button();
+            this.ok2_btn    = new System.Windows.Forms.Button();
+            this.label2acc      = new System.Windows.Forms.Label();
+            this.label2y_pos    = new System.Windows.Forms.Label();
+            this.label2x_pos    = new System.Windows.Forms.Label();
+            this.label2y_spd    = new System.Windows.Forms.Label();
+            this.label2x_spd    = new System.Windows.Forms.Label();
             this.n5 = new System.Windows.Forms.NumericUpDown();
             this.n6 = new System.Windows.Forms.NumericUpDown();
             this.n7 = new System.Windows.Forms.NumericUpDown();
             this.n8 = new System.Windows.Forms.NumericUpDown();
-            this.ok2_btn = new System.Windows.Forms.Button();
-            this.hide2_btn = new System.Windows.Forms.Button();
+
             this.groupBall3 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.acc_three = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.acc_three  = new System.Windows.Forms.NumericUpDown();
+            this.ok3_btn    = new System.Windows.Forms.Button();
+            this.hide3_btn  = new System.Windows.Forms.Button();
+            this.label3acc      = new System.Windows.Forms.Label();
+            this.label3y_pos    = new System.Windows.Forms.Label();
+            this.label3x_pos    = new System.Windows.Forms.Label();
+            this.label3y_spd    = new System.Windows.Forms.Label();
+            this.label3x_spd    = new System.Windows.Forms.Label();
             this.n9 = new System.Windows.Forms.NumericUpDown();
             this.n10 = new System.Windows.Forms.NumericUpDown();
             this.n11 = new System.Windows.Forms.NumericUpDown();
             this.n12 = new System.Windows.Forms.NumericUpDown();
-            this.ok3_btn = new System.Windows.Forms.Button();
-            this.hide3_btn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.n1 = new System.Windows.Forms.TrackBar();
-            this.n2 = new System.Windows.Forms.TrackBar();
-            this.n3 = new System.Windows.Forms.TrackBar();
-            this.n4 = new System.Windows.Forms.TrackBar();
+
+            this.wall = new System.Windows.Forms.Panel();
+
             ((System.ComponentModel.ISupportInitialize)(this.timer)).BeginInit();
+
             this.groupBall1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acc_one)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_xspd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_yspd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_xpos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_ypos)).BeginInit();
+
             this.groupBall2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acc_two)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n8)).BeginInit();
+
             this.groupBall3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.acc_three)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -206,32 +223,33 @@ namespace Gravity_Simulation
             this.menuItemAddBall.Text = "Add ball";
             this.menuItemAddBall.Click += new System.EventHandler(this.menuItemAddBall_Click);
             // 
-            // menuItemTempoMais
+            // menuItemTempoMore
             // 
             this.menuItemTempoMore.Index = 1;
             this.menuItemTempoMore.Text = "Tempo ++";
             this.menuItemTempoMore.Click += new System.EventHandler(this.menuItemTempoMore_Click);
             // 
-            // menuItemTempoMenos
+            // menuItemTempoLess
             // 
             this.menuItemTempoLess.Index = 2;
             this.menuItemTempoLess.Text = "Tempo --";
             this.menuItemTempoLess.Click += new System.EventHandler(this.menuItemTempoLess_Click);
+            
             // 
             // groupBall1
             // 
             this.groupBall1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBall1.Controls.Add(this.n4);
-            this.groupBall1.Controls.Add(this.n3);
-            this.groupBall1.Controls.Add(this.n2);
-            this.groupBall1.Controls.Add(this.n1);
-            this.groupBall1.Controls.Add(this.label13);
+            this.groupBall1.Controls.Add(this.Bar_xspd);
+            this.groupBall1.Controls.Add(this.Bar_yspd);
+            this.groupBall1.Controls.Add(this.Bar_xpos);
+            this.groupBall1.Controls.Add(this.Bar_ypos);
             this.groupBall1.Controls.Add(this.acc_one);
             this.groupBall1.Controls.Add(this.hide1_btn);
-            this.groupBall1.Controls.Add(this.label4);
-            this.groupBall1.Controls.Add(this.label3);
-            this.groupBall1.Controls.Add(this.label2);
-            this.groupBall1.Controls.Add(this.label1);
+            this.groupBall1.Controls.Add(this.label1x_spd);
+            this.groupBall1.Controls.Add(this.label1y_spd);
+            this.groupBall1.Controls.Add(this.label1x_pos);
+            this.groupBall1.Controls.Add(this.label1y_pos);
+            this.groupBall1.Controls.Add(this.label1acc);
             this.groupBall1.Controls.Add(this.ok1_btn);
             this.groupBall1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBall1.Location = new System.Drawing.Point(670, 6);
@@ -241,15 +259,6 @@ namespace Gravity_Simulation
             this.groupBall1.TabStop = false;
             this.groupBall1.Text = "Ball 1";
             this.groupBall1.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label13.Location = new System.Drawing.Point(16, 215);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 23);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "acc1";
             // 
             // acc_one
             // 
@@ -270,41 +279,50 @@ namespace Gravity_Simulation
             this.hide1_btn.Text = "Hide";
             this.hide1_btn.Click += new System.EventHandler(this.hideToolBox1_Click);
             // 
-            // label4
+            // label1acc
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label4.Location = new System.Drawing.Point(16, 158);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 23);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "y pos";
+            this.label1acc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1acc.Location = new System.Drawing.Point(16, 215);
+            this.label1acc.Name = "label13";
+            this.label1acc.Size = new System.Drawing.Size(56, 23);
+            this.label1acc.TabIndex = 14;
+            this.label1acc.Text = "acc1";
             // 
-            // label3
+            // label1y_pos
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(16, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 23);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "x pos";
+            this.label1y_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1y_pos.Location = new System.Drawing.Point(16, 158);
+            this.label1y_pos.Name = "label4";
+            this.label1y_pos.Size = new System.Drawing.Size(56, 23);
+            this.label1y_pos.TabIndex = 11;
+            this.label1y_pos.Text = "y pos";
             // 
-            // label2
+            // label1x_pos
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(16, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 23);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "y speed";
+            this.label1x_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1x_pos.Location = new System.Drawing.Point(16, 103);
+            this.label1x_pos.Name = "label3";
+            this.label1x_pos.Size = new System.Drawing.Size(56, 23);
+            this.label1x_pos.TabIndex = 10;
+            this.label1x_pos.Text = "x pos";
             // 
-            // label1
+            // label1y_spd
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(16, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 23);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "x speed";
+            this.label1y_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1y_spd.Location = new System.Drawing.Point(16, 58);
+            this.label1y_spd.Name = "label2";
+            this.label1y_spd.Size = new System.Drawing.Size(56, 23);
+            this.label1y_spd.TabIndex = 9;
+            this.label1y_spd.Text = "y speed";
+            // 
+            // label1x_spd
+            // 
+            this.label1x_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1x_spd.Location = new System.Drawing.Point(16, 16);
+            this.label1x_spd.Name = "label1";
+            this.label1x_spd.Size = new System.Drawing.Size(56, 23);
+            this.label1x_spd.TabIndex = 8;
+            this.label1x_spd.Text = "x speed";
             // 
             // ok1_btn
             // 
@@ -315,16 +333,18 @@ namespace Gravity_Simulation
             this.ok1_btn.TabIndex = 3;
             this.ok1_btn.Text = "Ok";
             this.ok1_btn.Click += new System.EventHandler(this.ok1_btn_Click);
+            //------END groupBall1------
+            
             // 
             // groupBall2
             // 
             this.groupBall2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBall2.Controls.Add(this.label14);
+            this.groupBall2.Controls.Add(this.label2acc);
             this.groupBall2.Controls.Add(this.acc_two);
-            this.groupBall2.Controls.Add(this.label5);
-            this.groupBall2.Controls.Add(this.label6);
-            this.groupBall2.Controls.Add(this.label7);
-            this.groupBall2.Controls.Add(this.label8);
+            this.groupBall2.Controls.Add(this.label2y_pos);
+            this.groupBall2.Controls.Add(this.label2x_pos);
+            this.groupBall2.Controls.Add(this.label2y_spd);
+            this.groupBall2.Controls.Add(this.label2x_spd);
             this.groupBall2.Controls.Add(this.n5);
             this.groupBall2.Controls.Add(this.n6);
             this.groupBall2.Controls.Add(this.n7);
@@ -340,14 +360,14 @@ namespace Gravity_Simulation
             this.groupBall2.Text = "Ball 2";
             this.groupBall2.Visible = false;
             // 
-            // label14
+            // label2acc
             // 
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label14.Location = new System.Drawing.Point(16, 112);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 23);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "acc2";
+            this.label2acc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2acc.Location = new System.Drawing.Point(16, 112);
+            this.label2acc.Name = "label14";
+            this.label2acc.Size = new System.Drawing.Size(56, 23);
+            this.label2acc.TabIndex = 13;
+            this.label2acc.Text = "acc2";
             // 
             // acc_two
             // 
@@ -359,41 +379,41 @@ namespace Gravity_Simulation
             this.acc_two.TabIndex = 12;
             this.acc_two.Value = new decimal(new int[] {10,0,0,0});
             // 
-            // label5
+            // label2y_pos
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label5.Location = new System.Drawing.Point(16, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 23);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "y pos";
+            this.label2y_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2y_pos.Location = new System.Drawing.Point(16, 88);
+            this.label2y_pos.Name = "label5";
+            this.label2y_pos.Size = new System.Drawing.Size(56, 23);
+            this.label2y_pos.TabIndex = 11;
+            this.label2y_pos.Text = "y pos";
             // 
-            // label6
+            // label2x_pos
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label6.Location = new System.Drawing.Point(16, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 23);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "x pos";
+            this.label2x_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2x_pos.Location = new System.Drawing.Point(16, 64);
+            this.label2x_pos.Name = "label6";
+            this.label2x_pos.Size = new System.Drawing.Size(56, 23);
+            this.label2x_pos.TabIndex = 10;
+            this.label2x_pos.Text = "x pos";
             // 
-            // label7
+            // label2y_spd
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label7.Location = new System.Drawing.Point(16, 40);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 23);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "y speed";
+            this.label2y_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2y_spd.Location = new System.Drawing.Point(16, 40);
+            this.label2y_spd.Name = "label7";
+            this.label2y_spd.Size = new System.Drawing.Size(56, 23);
+            this.label2y_spd.TabIndex = 9;
+            this.label2y_spd.Text = "y speed";
             // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label8.Location = new System.Drawing.Point(16, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 23);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "x speed";
+            this.label2x_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2x_spd.Location = new System.Drawing.Point(16, 16);
+            this.label2x_spd.Name = "label8";
+            this.label2x_spd.Size = new System.Drawing.Size(56, 23);
+            this.label2x_spd.TabIndex = 8;
+            this.label2x_spd.Text = "x speed";
             // 
             // n5
             // 
@@ -450,16 +470,18 @@ namespace Gravity_Simulation
             this.hide2_btn.TabIndex = 10;
             this.hide2_btn.Text = "Hide";
             this.hide2_btn.Click += new System.EventHandler(this.hideToolBox2_Click);
+            //------END groupBall2------
+
             // 
             // groupBall3
             // 
             this.groupBall3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBall3.Controls.Add(this.label15);
+            this.groupBall3.Controls.Add(this.label3acc);
             this.groupBall3.Controls.Add(this.acc_three);
-            this.groupBall3.Controls.Add(this.label9);
-            this.groupBall3.Controls.Add(this.label10);
-            this.groupBall3.Controls.Add(this.label11);
-            this.groupBall3.Controls.Add(this.label12);
+            this.groupBall3.Controls.Add(this.label3y_pos);
+            this.groupBall3.Controls.Add(this.label3x_pos);
+            this.groupBall3.Controls.Add(this.label3y_spd);
+            this.groupBall3.Controls.Add(this.label3x_spd);
             this.groupBall3.Controls.Add(this.n9);
             this.groupBall3.Controls.Add(this.n10);
             this.groupBall3.Controls.Add(this.n11);
@@ -475,14 +497,14 @@ namespace Gravity_Simulation
             this.groupBall3.Text = "Ball 3";
             this.groupBall3.Visible = false;
             // 
-            // label15
+            // label3acc
             // 
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label15.Location = new System.Drawing.Point(16, 112);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(56, 23);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "acc3";
+            this.label3acc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3acc.Location = new System.Drawing.Point(16, 112);
+            this.label3acc.Name = "label3acc";
+            this.label3acc.Size = new System.Drawing.Size(56, 23);
+            this.label3acc.TabIndex = 15;
+            this.label3acc.Text = "acc3";
             // 
             // acc_three
             // 
@@ -494,41 +516,41 @@ namespace Gravity_Simulation
             this.acc_three.TabIndex = 14;
             this.acc_three.Value = new decimal(new int[] {10,0,0,0});
             // 
-            // label9
+            // label3y_pos
             // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label9.Location = new System.Drawing.Point(16, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 23);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "y pos";
+            this.label3y_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3y_pos.Location = new System.Drawing.Point(16, 88);
+            this.label3y_pos.Name = "label3y_pos";
+            this.label3y_pos.Size = new System.Drawing.Size(56, 23);
+            this.label3y_pos.TabIndex = 11;
+            this.label3y_pos.Text = "y pos";
             // 
-            // label10
+            // label3x_pos
             // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(16, 64);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 23);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "x pos";
+            this.label3x_pos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3x_pos.Location = new System.Drawing.Point(16, 64);
+            this.label3x_pos.Name = "label3x_pos";
+            this.label3x_pos.Size = new System.Drawing.Size(56, 23);
+            this.label3x_pos.TabIndex = 10;
+            this.label3x_pos.Text = "x pos";
             // 
-            // label11
+            // label3y_spd
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label11.Location = new System.Drawing.Point(16, 40);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 23);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "y speed";
+            this.label3y_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3y_spd.Location = new System.Drawing.Point(16, 40);
+            this.label3y_spd.Name = "label3y_spd";
+            this.label3y_spd.Size = new System.Drawing.Size(56, 23);
+            this.label3y_spd.TabIndex = 9;
+            this.label3y_spd.Text = "y speed";
             // 
             // label12
             // 
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label12.Location = new System.Drawing.Point(16, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 23);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "x speed";
+            this.label3x_spd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label3x_spd.Location = new System.Drawing.Point(16, 16);
+            this.label3x_spd.Name = "label3x_spd";
+            this.label3x_spd.Size = new System.Drawing.Size(56, 23);
+            this.label3x_spd.TabIndex = 8;
+            this.label3x_spd.Text = "x speed";
             // 
             // n9
             // 
@@ -586,63 +608,65 @@ namespace Gravity_Simulation
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Brown;
-            this.panel1.Location = new System.Drawing.Point(632, -24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(8, 600);
-            this.panel1.TabIndex = 11;
+            this.wall.BackColor = System.Drawing.Color.Brown;
+            this.wall.Location = new System.Drawing.Point(632, -24);
+            this.wall.Name = "wall";
+            this.wall.Size = new System.Drawing.Size(8, 600);
+            this.wall.TabIndex = 11;
             // 
             // n1
             // 
-            this.n1.LargeChange = 10;
-            this.n1.Location = new System.Drawing.Point(78, 16);
-            this.n1.Maximum = 100;
-            this.n1.Name = "n1";
-            this.n1.Size = new System.Drawing.Size(304, 45);
-            this.n1.SmallChange = 10;
-            this.n1.TabIndex = 15;
-            this.n1.TickFrequency = 10;
+            this.Bar_xspd.LargeChange = 10;
+            this.Bar_xspd.Location = new System.Drawing.Point(78, 16);
+            this.Bar_xspd.Maximum = 100;
+            this.Bar_xspd.Name = "Bar_xspd";
+            this.Bar_xspd.Size = new System.Drawing.Size(304, 45);
+            this.Bar_xspd.SmallChange = 10;
+            this.Bar_xspd.TabIndex = 15;
+            this.Bar_xspd.TickFrequency = 10;
             // 
             // n2
             // 
-            this.n2.Location = new System.Drawing.Point(78, 55);
-            this.n2.Maximum = 100;
-            this.n2.Name = "n2";
-            this.n2.Size = new System.Drawing.Size(304, 45);
-            this.n2.SmallChange = 10;
-            this.n2.TabIndex = 16;
-            this.n2.TickFrequency = 10;
+            this.Bar_yspd.Location = new System.Drawing.Point(78, 55);
+            this.Bar_yspd.Maximum = 100;
+            this.Bar_yspd.Name = "Bar_yspd";
+            this.Bar_yspd.Size = new System.Drawing.Size(304, 45);
+            this.Bar_yspd.SmallChange = 10;
+            this.Bar_yspd.TabIndex = 16;
+            this.Bar_yspd.TickFrequency = 10;
             // 
             // n3
             // 
-            this.n3.Location = new System.Drawing.Point(78, 107);
-            this.n3.Maximum = 580;
-            this.n3.Minimum = 1;
-            this.n3.Name = "n3";
-            this.n3.Size = new System.Drawing.Size(304, 45);
-            this.n3.SmallChange = 20;
-            this.n3.TabIndex = 17;
-            this.n3.TickFrequency = 20;
-            this.n3.Value = 1;
+            this.Bar_xpos.Location = new System.Drawing.Point(78, 107);
+            this.Bar_xpos.Maximum = 580;
+            this.Bar_xpos.Minimum = 1;
+            this.Bar_xpos.Name = "Bar_xpos";
+            this.Bar_xpos.Size = new System.Drawing.Size(304, 45);
+            this.Bar_xpos.SmallChange = 20;
+            this.Bar_xpos.TabIndex = 17;
+            this.Bar_xpos.TickFrequency = 20;
+            this.Bar_xpos.Value = 1;
             // 
             // n4
             // 
-            this.n4.Location = new System.Drawing.Point(78, 158);
-            this.n4.Maximum = 509;
-            this.n4.Minimum = 1;
-            this.n4.Name = "n4";
-            this.n4.Size = new System.Drawing.Size(304, 45);
-            this.n4.SmallChange = 20;
-            this.n4.TabIndex = 18;
-            this.n4.TickFrequency = 20;
-            this.n4.Value = 1;
+            this.Bar_ypos.Location = new System.Drawing.Point(78, 158);
+            this.Bar_ypos.Maximum = 509;
+            this.Bar_ypos.Minimum = 1;
+            this.Bar_ypos.Name = "Bar_ypos";
+            this.Bar_ypos.Size = new System.Drawing.Size(304, 45);
+            this.Bar_ypos.SmallChange = 20;
+            this.Bar_ypos.TabIndex = 18;
+            this.Bar_ypos.TickFrequency = 20;
+            this.Bar_ypos.Value = 1;
+            //------END groupBall2------
+
             // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1083, 553);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.wall);
             this.Controls.Add(this.groupBall3);
             this.Controls.Add(this.groupBall2);
             this.Controls.Add(this.groupBall1);
@@ -676,10 +700,10 @@ namespace Gravity_Simulation
             ((System.ComponentModel.ISupportInitialize)(this.n10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.n11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.n12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_xspd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_yspd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_xpos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Bar_ypos)).EndInit();
             this.ResumeLayout(false);
 		}
 
@@ -699,11 +723,6 @@ namespace Gravity_Simulation
             }
             base.Dispose(disposing);
         }
-
-        private System.Windows.Forms.TrackBar n1;
-        private System.Windows.Forms.TrackBar n4;
-        private System.Windows.Forms.TrackBar n3;
-        private System.Windows.Forms.TrackBar n2;
 
     }
 }

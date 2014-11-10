@@ -108,20 +108,11 @@
     <Compile Include="Quadra.designer.cs">
       <DependentUpon>Quadra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Painel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Painel.Designer.cs">
-      <DependentUpon>Painel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="src\Bola.cs" />
     <Content Include="App.ico" />
     <EmbeddedResource Include="Quadra.resx">
       <DependentUpon>Quadra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Painel.resx">
-      <DependentUpon>Painel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
