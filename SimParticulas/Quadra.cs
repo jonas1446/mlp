@@ -22,16 +22,16 @@ namespace Gravity_Simulation
 		private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
 			b1.play();
-            b1.ball.Left = (int)b1.newxpos;
-            b1.ball.Top = (int)(ground - b1.newypos);
+            b1.ball.Left = (int)b1.get_newxpos();
+            b1.ball.Top = (int)(ground - b1.get_newypos());
 
 			b2.play();
-            b2.ball.Left = (int)b2.newxpos;
-            b2.ball.Top = (int)(ground - b2.newypos);
+            b2.ball.Left = (int)b2.get_newxpos();
+            b2.ball.Top = (int)(ground - b2.get_newypos());
 
 			b3.play();
-            b3.ball.Left = (int)b3.newxpos;
-            b3.ball.Top = (int)(ground - b3.newypos);
+            b3.ball.Left = (int)b3.get_newxpos();
+            b3.ball.Top = (int)(ground - b3.get_newypos());
 
 			Collision();
 		}
@@ -46,19 +46,19 @@ namespace Gravity_Simulation
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that they have the same mass -> xspeed + xspeed2 = xspeed` + xspeed2`
 
-				if(Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
-					b1.xspeed = b2.xspeed;
-				else if(b1.xspeed > 0 )
-					b1.xspeed *= -0.9;
+                if (Math.Abs(b1.get_xspeed()) < 0.5 && Math.Abs(b1.get_xspeed()) >= 0)
+					b1.set_xspeed(b2.get_xspeed());
+                else if (b1.get_xspeed() > 0)
+					b1.set_xspeed(b1.get_xspeed() * -0.9);
 				else
-					b1.xspeed *= 1.35;
+                    b1.set_xspeed(b1.get_xspeed() * 1.35);
 
-                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
-                    b2.xspeed = b1.xspeed;
-                else if (b2.xspeed > 0)
-                    b2.xspeed *= 1.35;
+                if (Math.Abs(b2.get_xspeed()) < 0.5 && Math.Abs(b2.get_xspeed()) >= 0)
+                    b2.set_xspeed(b1.get_xspeed());
+                else if (b2.get_xspeed() > 0)
+                    b2.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b2.xspeed *= -0.9;
+                    b2.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 
 			// ball hits ball2 from the left, and we don't know the direction of ball2 nor ball
@@ -68,19 +68,19 @@ namespace Gravity_Simulation
 				// xspeed2 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed2 = xspeed` + xspeed2`
 
-                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
-                    b1.xspeed = b2.xspeed;
-                else if (b1.xspeed < 0)
-                    b1.xspeed *= -0.9;
+                if (Math.Abs(b1.get_xspeed()) < 0.5 && Math.Abs(b1.get_xspeed()) >= 0)
+                    b1.set_xspeed(b2.get_xspeed());
+                else if (b1.get_xspeed() < 0)
+                    b1.set_xspeed(b1.get_xspeed() * -0.9);
 				else
-                    b1.xspeed *= 1.35;
+                    b1.set_xspeed(b1.get_xspeed() * 1.35);
 
-                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
-                    b2.xspeed = b1.xspeed;
-                else if (b2.xspeed < 0)
-                    b2.xspeed *= 1.35;
+                if (Math.Abs(b2.get_xspeed()) < 0.5 && Math.Abs(b2.get_xspeed()) >= 0)
+                    b2.set_xspeed(b1.get_xspeed());
+                else if (b2.get_xspeed() < 0)
+                    b2.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b2.xspeed *= -0.9;
+                    b2.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 			#endregion ball and ball2
 
@@ -92,19 +92,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed3 = xspeed` + xspeed3`
 
-                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
-                    b1.xspeed = b3.xspeed;
-                else if (b1.xspeed > 0)
-                    b1.xspeed *= -0.9;
+                if (Math.Abs(b1.get_xspeed()) < 0.5 && Math.Abs(b1.get_xspeed()) >= 0)
+                    b1.set_xspeed(b3.get_xspeed());
+                else if (b1.get_xspeed() > 0)
+                    b1.set_xspeed(b1.get_xspeed() * -0.9);
 				else
-                    b1.xspeed *= 1.35;
+                    b1.set_xspeed(b1.get_xspeed() * 1.35);
 
-                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
-                    b3.xspeed = b1.xspeed;
-                else if (b3.xspeed > 0)
-                    b3.xspeed *= 1.35;
+                if (Math.Abs(b3.get_xspeed()) < 0.5 && Math.Abs(b3.get_xspeed()) >= 0)
+                    b3.set_xspeed(b1.get_xspeed());
+                else if (b3.get_xspeed() > 0)
+                    b3.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b3.xspeed *= -0.9;
+                    b3.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 
 			// ball hits ball3 from the left, and we don't know the direction of ball3 nor ball
@@ -114,19 +114,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed, by the "preserved momentum law", knowing that the have the same mass -> xspeed + xspeed3 = xspeed` + xspeed3`
 
-                if (Math.Abs(b1.xspeed) < 0.5 && Math.Abs(b1.xspeed) >= 0)
-                    b1.xspeed = b3.xspeed;
-                else if (b1.xspeed < 0)
-                    b1.xspeed *= -0.9;
+                if (Math.Abs(b1.get_xspeed()) < 0.5 && Math.Abs(b1.get_xspeed()) >= 0)
+                    b1.set_xspeed(b3.get_xspeed());
+                else if (b1.get_xspeed() < 0)
+                    b1.set_xspeed(b1.get_xspeed() * -0.9);
 				else
-                    b1.xspeed *= 1.35;
+                    b1.set_xspeed(b1.get_xspeed() * 1.35);
 
-                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
-                    b3.xspeed = b1.xspeed;
-                else if (b3.xspeed < 0)
-                    b3.xspeed *= 1.35;
+                if (Math.Abs(b3.get_xspeed()) < 0.5 && Math.Abs(b3.get_xspeed()) >= 0)
+                    b3.set_xspeed(b1.get_xspeed());
+                else if (b3.get_xspeed() < 0)
+                    b3.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b3.xspeed *= -0.9;
+                    b3.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 			#endregion ball and ball3
 
@@ -138,19 +138,19 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed2, by the "preserved momentum law", knowing that the have the same mass -> xspeed2 + xspeed3 = xspeed2` + xspeed3`
 
-                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
-                    b2.xspeed = b3.xspeed;
-                else if (b2.xspeed > 0)
-                    b2.xspeed *= -0.9;
+                if (Math.Abs(b2.get_xspeed()) < 0.5 && Math.Abs(b2.get_xspeed()) >= 0)
+                    b2.set_xspeed(b3.get_xspeed());
+                else if (b2.get_xspeed() > 0)
+                    b2.set_xspeed(b2.get_xspeed() * -0.9);
 				else
-                    b2.xspeed *= 1.35;
+                    b2.set_xspeed(b2.get_xspeed() * 1.35);
 
-                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
-                    b3.xspeed = b2.xspeed;
-                else if (b3.xspeed > 0)
-                    b3.xspeed *= 1.35;
+                if (Math.Abs(b3.get_xspeed()) < 0.5 && Math.Abs(b3.get_xspeed()) >= 0)
+                    b3.set_xspeed(b2.get_xspeed());
+                else if (b3.get_xspeed() > 0)
+                    b3.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b3.xspeed *= -0.9;
+                    b3.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 
 			// ball2 hits ball3 from the left, and we don't know the direction of ball3 nor ball2
@@ -160,30 +160,36 @@ namespace Gravity_Simulation
 				// xspeed3 either will decrease or increase at the same or the oppisite direction, depends on its direction
 				// hit with the same direction, the power of hit depends on the xspeed2, by the "preserved momentum law", knowing that the have the same mass -> xspeed2 + xspeed3 = xspeed2` + xspeed3`
 
-                if (Math.Abs(b2.xspeed) < 0.5 && Math.Abs(b2.xspeed) >= 0)
-                    b2.xspeed = b3.xspeed;
-                else if (b2.xspeed < 0)
-                    b2.xspeed *= -0.9;
+                if (Math.Abs(b2.get_xspeed()) < 0.5 && Math.Abs(b2.get_xspeed()) >= 0)
+                    b2.set_xspeed(b3.get_xspeed());
+                else if (b2.get_xspeed() < 0)
+                    b2.set_xspeed(b2.get_xspeed() * -0.9);
 				else
-                    b2.xspeed *= 1.35;
+                    b2.set_xspeed(b2.get_xspeed() * 1.35);
 
-                if (Math.Abs(b3.xspeed) < 0.5 && Math.Abs(b3.xspeed) >= 0)
-                    b3.xspeed = b2.xspeed;
-                else if (b3.xspeed < 0)
-                    b3.xspeed *= 1.35;
+                if (Math.Abs(b3.get_xspeed()) < 0.5 && Math.Abs(b3.get_xspeed()) >= 0)
+                    b3.set_xspeed(b2.get_xspeed());
+                else if (b3.get_xspeed() < 0)
+                    b3.set_xspeed(b2.get_xspeed() * 1.35);
 				else
-                    b3.xspeed *= -0.9;
+                    b3.set_xspeed(b2.get_xspeed() * -0.9);
 			}
 			#endregion ball2 and ball3
 		}
 		
 		private void Form1_Load(object sender, System.EventArgs e)
 		{
-			b1.t = b2.t = b3.t= 0;
-			b1.acc = b2.acc = b3.acc = 10;
+			b1.set_t(0); 
+            b2.set_t(0);
+            b3.set_t(0);
+            b1.set_acc(10);
+            b2.set_acc(10);
+            b3.set_acc(10);
 			// Hide the balls
-            b2.newxpos = b3.newxpos = 2000;
-            b2.newypos = b3.newypos = 2000;
+            b2.set_newxpos(2000); 
+            b3.set_newxpos(2000);
+            b2.set_newypos(2000);
+            b3.set_newypos(2000);
 
 		}
 
@@ -206,25 +212,25 @@ namespace Gravity_Simulation
 			switch(choice)
 			{
 				case 1:
-					b1.dragging = true;
-                    b1.newxpos = e.X;
-                    b1.newypos = e.Y;
-                    b1.xmouse = e.X;
-                    b1.ymouse = e.Y;
+					b1.set_dragging(true);
+                    b1.set_newxpos(e.X);
+                    b1.set_newypos(e.Y);
+                    b1.set_xmouse(e.X);
+                    b1.set_ymouse(e.Y);
 					break;
 				case 2:
-					b2.dragging = true;
-                    b2.newxpos = e.X;
-                    b2.newypos = e.Y;
-                    b2.xmouse = e.X;
-                    b2.ymouse = e.Y;
+                    b2.set_dragging(true);
+                    b2.set_newxpos(e.X);
+                    b2.set_newypos(e.Y);
+                    b2.set_xmouse(e.X);
+                    b2.set_ymouse(e.Y);
 					break;
 				case 3:
-                    b3.dragging = true;
-                    b3.newxpos = e.X;
-                    b3.newypos = e.Y;
-                    b3.xmouse = e.X;
-					b3.ymouse = e.Y;
+                    b3.set_dragging(true);
+                    b3.set_newxpos(e.X);
+                    b3.set_newypos(e.Y);
+                    b3.set_xmouse(e.X);
+                    b3.set_ymouse(e.Y);
 					break;
 			}
 		}
@@ -233,13 +239,13 @@ namespace Gravity_Simulation
 			switch(choice)
 			{
 				case 1:
-					b1.dragging = false;
+                    b1.set_dragging(false);
 					break;
 				case 2:
-					b2.dragging = false;
+                    b2.set_dragging(false);
 					break;
 				case 3:
-					b3.dragging = false;
+                    b3.set_dragging(false);
 					break;
 			}
 		}
@@ -248,16 +254,16 @@ namespace Gravity_Simulation
 			switch(choice)
 			{
 				case 1:
-					b1.xmouse = e.X;
-					b1.ymouse = e.Y;
+                    b1.set_xmouse(e.X);
+                    b1.set_ymouse(e.Y);
 					break;
 				case 2:
-					b2.xmouse = e.X;
-					b2.ymouse = e.Y;
+                    b2.set_xmouse(e.X);
+                    b2.set_ymouse(e.Y);
 					break;
 				case 3:
-                    b3.xmouse = e.X;
-                    b3.ymouse = e.Y;
+                    b3.set_xmouse(e.X);
+                    b3.set_ymouse(e.Y);
 					break;
 			}
 		}
@@ -306,32 +312,32 @@ namespace Gravity_Simulation
 		
         private void ok1_btn_Click(object sender, System.EventArgs e)
 		{
-			b1.xspeed = (double)Bar_xspd.Value;
-            b1.yspeed = (double)Bar_yspd.Value;
-            b1.newxpos = (double)Bar_xpos.Value;
-            b1.newypos = (double)Bar_ypos.Value;
-			b1.acc = (double)acc_one.Value;
-            b1.dragging = false;
+			b1.set_xspeed((double)Bar_xspd.Value);
+            b1.set_yspeed((double)Bar_yspd.Value);
+            b1.set_newxpos((double)Bar_xpos.Value);
+            b1.set_newypos((double)Bar_ypos.Value); 
+			b1.set_acc((double)acc_one.Value);
+            b1.set_dragging(false);
 		}
 		private void ok2_btn_Click(object sender, System.EventArgs e)
 		{
-		
-			b2.xspeed = (double)n8.Value;
-            b2.yspeed = (double)n7.Value;
-            b2.newxpos = (double)n6.Value;
-            b2.newypos = (double)n5.Value;
-            b2.acc = (double)acc_two.Value;
-            b2.dragging = false;
+
+            b2.set_xspeed((double)n8.Value);
+            b2.set_yspeed((double)n7.Value);
+            b2.set_newxpos((double)n6.Value);
+            b2.set_newypos((double)n5.Value);
+            b2.set_acc((double)acc_two.Value);
+            b2.set_dragging(false);
 		}
 		private void ok3_btn_Click(object sender, System.EventArgs e)
 		{
-		
-			b3.xspeed = (double)n12.Value;
-            b3.yspeed = (double)n11.Value;
-            b3.newxpos = (double)n10.Value;
-            b3.newypos = (double)n9.Value;
-            b3.acc = (double)acc_three.Value;
-            b3.dragging = false;
+
+            b3.set_xspeed((double)n12.Value);
+            b3.set_yspeed((double)n11.Value);
+            b3.set_newxpos((double)n10.Value);
+            b3.set_newypos((double)n9.Value);
+            b3.set_acc((double)acc_three.Value);
+            b3.set_dragging(false);
 		}
 		
         private void menuItemExit_Click(object sender, System.EventArgs e)

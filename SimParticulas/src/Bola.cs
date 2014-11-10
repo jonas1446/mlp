@@ -11,15 +11,14 @@ namespace Gravity_Simulation
 
         private double newyspeed;
         private double startingypos;
-        private double oldxpos, oldypos;
+        private double oldxpos;
         private double newx, newy;
-        private double oldx, oldy; 
-
-        public double newxpos, newypos;
-        public double xspeed, yspeed;
-        public double acc, t;
-        public int xmouse, ymouse;
-        public bool dragging, trace, collisiony;
+        private double oldx, oldy;
+        private bool collisiony, dragging; 
+        private double newxpos, newypos;
+        private double xspeed, yspeed;
+        private double acc, t;
+        private int xmouse, ymouse;
 
         public System.Windows.Forms.PictureBox ball;
 
@@ -41,7 +40,7 @@ namespace Gravity_Simulation
 
         }
         public Ballinstance(string ballName, int tabind, bool d)
-        {
+        {            
             ball = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(ball)).BeginInit();
 
@@ -89,16 +88,6 @@ namespace Gravity_Simulation
             }
             else
             {
-                /*if(trace)
-                {
-                    Size s = new Size(6,6);
-                    Point p = new Point(ball.Right,ball.Bottom);
-                    Rectangle r = new Rectangle(p,s);
-                    Pen pen = new Pen(Color.Blue,1);
-                    Graphics graphics = CreateGraphics();
-                    graphics.DrawRectangle(pen,r);
-                }*/
-
                 // This code will be visited 50 times per second while not dragging
                 // The ball position is where it's last dragged
                 oldxpos = xpos;
@@ -167,6 +156,96 @@ namespace Gravity_Simulation
                 t += 0.3;
             }
         }
+
+        public bool get_dragging()
+        {
+            return dragging;
+        }
+        public void set_dragging(bool d)
+        {
+            dragging = d;
+        }
+        public double get_newxpos()
+        {
+            return newxpos;
+        }
+        public void set_newxpos(double x)
+        {
+            newxpos = x;
+        }
+        public double get_newypos()
+        {
+            return newypos;
+        }
+        public void set_newypos(double y)
+        {
+            newxpos = y;
+        }
+        public double get_oldx()
+        {
+            return oldx;
+        }
+        public void set_oldx(double x)
+        {
+            newxpos = x;
+        }
+        public double get_oldy()
+        {
+            return oldy;
+        }
+        public void set_oldy(double y)
+        {
+            newxpos = y;
+        }
+        public double get_xspeed()
+        {
+            return xspeed;
+        }
+        public void set_xspeed(double x)
+        {
+            xspeed = x;
+        }
+        public double get_yspeed()
+        {
+            return yspeed;
+        }
+        public void set_yspeed(double y)
+        {
+            yspeed = y;
+        }
+        public double get_acc()
+        {
+            return acc;
+        }
+        public void set_acc(double a)
+        {
+            acc = a;
+        }
+        public double get_t()
+        {
+            return t;
+        }
+        public void set_t(double d)
+        {
+            t = d;
+        }
+        public int get_xmouse()
+        {
+            return xmouse;
+        }
+        public void set_xmouse(int x)
+        {
+            xmouse = x;
+        }
+        public int get_ymouse()
+        {
+            return ymouse;
+        }
+        public void set_ymouse(int y)
+        {
+            ymouse = y;
+        }
+
 
     }
 }
